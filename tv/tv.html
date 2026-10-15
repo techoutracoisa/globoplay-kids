@@ -1467,7 +1467,9 @@ class Component extends DCLogic {
     const k = ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter',' ','Escape','Backspace'].indexOf(e.key)>=0 ? e.key : BY_CODE[code];
     if(!k) return;
     e.preventDefault();
-    if(!e.repeat && !this.state.spinning) this.sfx('tap');
+    // Navigation sound only while focus is on the roulette (universe arc or spin arrow).
+    const onRoleta = this.state.screen==='home' && (this.state.zone==='arc' || this.state.zone==='seta');
+    if(!e.repeat && !this.state.spinning && onRoleta) this.sfx('tap');
     if(this.state.spinning) this.stopSpin();
     const wasIdle = this.state.idle;
     this.bumpIdle();
