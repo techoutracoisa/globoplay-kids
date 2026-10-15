@@ -1,0 +1,56 @@
+/* Playkit 3.0 — Global colors. Values transcribed verbatim from the Figma foundation frames. */
+:root{
+/* Neutral */
+--neutral-white:#FFFFFF;--neutral-10:#EEEEEE;--neutral-20:#CCCCCC;--neutral-30:#AAAAAA;--neutral-40:#888888;--neutral-50:#666666;--neutral-60:#454545;--neutral-70:#333333;--neutral-80:#262626;--neutral-90:#1F1F1F;--neutral-100:#191919;--neutral-black:#000000;
+/* Red — the Globoplay signal colour */
+--red-light:#FED5DD;--red-base:#FB0234;--red-medium:#D1022B;--red-dark:#540111;
+/* Wine */
+--wine-light:#F3D9E0;--wine-base:#AC0031;--wine-medium:#9B002C;--wine-dark:#400015;
+/* Orange */
+--orange-light:#FFE2CE;--orange-base:#FF6F09;--orange-medium:#E66408;--orange-dark:#803804;
+/* Tangerine */
+--tangerine-light:#FFEDCE;--tangerine-base:#FFA60C;--tangerine-medium:#E6950B;--tangerine-dark:#805306;
+/* Yellow */
+--yellow-light:#FDF7CC;--yellow-base:#F3D700;--yellow-medium:#DBC100;--yellow-dark:#796B00;
+/* Green */
+--green-light:#EEF9CC;--green-base:#ACE000;--green-medium:#9BCA00;--green-dark:#567000;
+/* Blue */
+--blue-light:#D7EBFF;--blue-base:#1786EF;--blue-medium:#0069D6;--blue-dark:#0C4378;
+/* Gradient */
+--gradient-blue:linear-gradient(180deg,#1786EF 0%,#0C4378 100%); /* @kind color */
+/* Opacity scrims — dark */
+--opacity-dark-10:rgba(0,0,0,.10);--opacity-dark-20:rgba(0,0,0,.20);--opacity-dark-30:rgba(0,0,0,.30);--opacity-dark-50:rgba(0,0,0,.50);--opacity-dark-80:rgba(0,0,0,.80);
+/* Opacity scrims — light */
+--opacity-light-10:rgba(255,255,255,.10);--opacity-light-20:rgba(255,255,255,.20);--opacity-light-30:rgba(255,255,255,.30);--opacity-light-50:rgba(255,255,255,.50);--opacity-light-80:rgba(255,255,255,.80);
+
+/* ── Semantic aliases (authored for this design system, mapped to the palette above) ── */
+--app-background:var(--neutral-90);
+--surface-raised:var(--neutral-80);
+--surface-sunken:var(--neutral-100);
+--surface-overlay:var(--opacity-dark-80);
+--surface-glass:var(--opacity-light-20);
+--text-primary:var(--neutral-white);
+--text-secondary:var(--neutral-30);
+--text-tertiary:var(--neutral-40);
+--text-disabled:var(--neutral-50);
+--text-on-light:var(--neutral-100);
+--text-accent:var(--red-base);
+--border-subtle:var(--neutral-70);
+--border-strong:var(--neutral-50);
+--border-focus:var(--neutral-white);
+--action-primary-bg:var(--neutral-white);
+--action-primary-fg:var(--neutral-100);
+--action-secondary-bg:var(--opacity-light-20);
+--action-secondary-fg:var(--neutral-white);
+--action-sales-bg:var(--red-medium);
+--action-sales-fg:var(--neutral-white);
+--feedback-error:var(--red-base);
+--feedback-warning:var(--tangerine-base);
+--feedback-success:var(--green-medium);
+--feedback-info:var(--blue-base);
+--live-indicator:var(--red-base);
+--link:var(--neutral-white);
+--link-hover:var(--neutral-20);
+}
+a{color:var(--link);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--link-hover)}
