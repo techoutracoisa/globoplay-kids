@@ -1,0 +1,30 @@
+/* Playkit 3.0 — Typography tokens.
+   $font-family-principal = Inter. $font-family-classification-indicative = Open Sans Condensed
+   (used only for the DEJUS/ClassInd age-rating marks, which are typographically prescribed).
+   Globotipo is Globo's proprietary corporate typeface; no binaries ship with the .fig, so
+   --font-family-brand falls back to Inter. See readme.md → Font substitutions. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Open+Sans:wght@400;600;700&family=Open+Sans+Condensed:wght@700&family=Roboto:wght@400;500;700&display=swap');
+:root{
+--font-family-principal:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+--font-family-classification-indicative:'Open Sans Condensed','Open Sans',Arial Narrow,sans-serif;
+--font-family-support:'Open Sans',-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+--font-family-native:'Roboto',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+--font-family-brand:'Globotipo Texto','Globotipo UI','Inter',sans-serif;
+
+--font-weight-regular:400;--font-weight-medium:500;--font-weight-bold:700;
+
+--font-size-10:0.625rem;/* 10px */
+--font-size-20:0.75rem;/* 12px */
+--font-size-30:0.875rem;/* 14px */
+--font-size-40:1rem;/* 16px */
+--font-size-50:1.125rem;/* 18px */
+--font-size-60:1.25rem;/* 20px */
+--font-size-70:1.5rem;/* 24px */
+--font-size-80:1.75rem;/* 28px */
+--font-size-90:2rem;/* 32px */
+--font-size-100:2.5rem;/* 40px */
+--font-size-110:3rem;/* 48px */
+--font-size-120:3.5rem;/* 56px */
+
+--line-height-compact:1.25;--line-height-spaced:1.5;
+}

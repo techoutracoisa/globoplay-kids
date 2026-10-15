@@ -1,0 +1,16 @@
+/* Playkit 3.0 — Space, shape, elevation, blur and breakpoints. */
+:root{
+--spacing-none:0px;--spacing-3xsmall:4px;--spacing-2xsmall:8px;--spacing-xsmall:12px;--spacing-small:16px;--spacing-medium:24px;--spacing-large:32px;--spacing-xlarge:40px;--spacing-2xlarge:48px;--spacing-3xlarge:56px;--spacing-4xlarge:64px;
+
+--border-radius-small:4px;--border-radius-medium:8px;--border-radius-large:12px;--border-radius-xlarge:16px;--border-radius-circular:50%;--border-radius-pill:500px;
+
+--border-width-thin:1px;--border-width-light:2px;--border-width-medium:4px;--border-width-heavy:6px;
+
+--shadow-level-1:0px 4px 4px 0px rgba(0,0,0,0.25);
+--shadow-level-2:0px 12px 4px 0px rgba(0,0,0,0.25);
+
+--background-blur-level-1:blur(50px); /* @kind other */
+
+--screen-xxs-min:360px;--screen-xs-min:480px;--screen-sm-min:768px;--screen-md-min:1024px;--screen-lg-min:1280px;--screen-xl-min:1440px;--screen-xxl-min:1680px;--screen-xxxl-min:1920px;
+--screen-hd:1280px;--screen-fullhd:1920px;
+}

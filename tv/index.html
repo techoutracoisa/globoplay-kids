@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Globoplay infantil · Comparar TV</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/playkit-3-0-globoplay-design-system-c42f1dcd-1b0f-4faf-b02e-ce03717b9b23/tokens/typography.css">
+<style>html,body{margin:0;height:100%;background:#1F1F1F;color:#FFFFFF;font-family:Inter,-apple-system,'Segoe UI',sans-serif}a{color:#FFFFFF}a:hover{color:#CFCFCF}</style>
+</helmet>
+<div data-screen-label="Comparar TV" style="min-height:100vh;box-sizing:border-box;padding:24px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+<div style="display:flex;flex-direction:column;gap:4px">
+<div style="font-size:20px;font-weight:700;line-height:1.25">Normal × Simple</div>
+<div style="font-size:14px;line-height:1.5;color:#CFCFCF">Setas, Enter e Esc/Backspace controlam as duas versões ao mesmo tempo</div>
+</div>
+<div style="display:flex;align-items:center;gap:8px">
+<div onClick="{{ onReload }}" style="height:40px;padding:0 20px;border-radius:500px;display:grid;place-items:center;cursor:pointer;background:rgba(255,255,255,.20);font-size:14px;font-weight:700" style-hover="background:rgba(255,255,255,.30)">Reiniciar as duas</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700"><span>Normal</span><span style="color:#CFCFCF;font-weight:400">Globoplay Kids - TV</span></div>
+<div style="position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000000">
+<iframe ref="{{ refA }}" onLoad="{{ onLoadA }}" src="tv.html?v={{ bust }}" title="Normal" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block"></iframe>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700"><span>Simple</span><span style="color:#CFCFCF;font-weight:400">Globoplay Kids - TV Simple</span></div>
+<div style="position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000000">
+<iframe ref="{{ refB }}" onLoad="{{ onLoadB }}" src="tv-simple.html?v={{ bust }}" title="Simple" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block"></iframe>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  refA = React.createRef();
+  refB = React.createRef();
+  bust = Date.now();
+  KEYS = {ArrowLeft:37,ArrowUp:38,ArrowRight:39,ArrowDown:40,Enter:13,Escape:27,Backspace:8};
+  send(win, e){
+    if(!win) return;
+    const ev = new win.KeyboardEvent('keydown', {key:e.key, code:e.code, bubbles:true, cancelable:true});
+    const kc = e.keyCode || this.KEYS[e.key] || 0;
+    Object.defineProperty(ev,'keyCode',{get:()=>kc});
+    Object.defineProperty(ev,'which',{get:()=>kc});
+    ev.__mirrored = true;
+    win.dispatchEvent(ev);
+  }
+  wins(){ return [this.refA.current, this.refB.current].map(f=>f && f.contentWindow); }
+  relevant(e){ return e.key in this.KEYS || [10009,461,166].includes(e.keyCode); }
+  componentDidMount(){
+    this._top = (e)=>{ if(!this.relevant(e)) return; e.preventDefault(); this.wins().forEach(w=>this.send(w,e)); };
+    window.addEventListener('keydown', this._top);
+  }
+  componentWillUnmount(){ window.removeEventListener('keydown', this._top); }
+  hook(i){
+    const w = this.wins()[i], other = this.wins()[1-i];
+    if(!w) return;
+    try { w.addEventListener('keydown', (e)=>{ if(e.__mirrored || !this.relevant(e)) return; this.send(this.wins()[1-i], e); }, true); } catch(err){}
+  }
+  renderVals(){
+    return {
+      refA:this.refA, refB:this.refB, bust:this.bust,
+      onLoadA:()=>this.hook(0), onLoadB:()=>this.hook(1),
+      onReload:()=>{ this.wins().forEach(w=>{ try{ w.location.reload(); }catch(err){} }); window.focus(); }
+    };
+  }
+}
+</script>
+</body>
+</html>

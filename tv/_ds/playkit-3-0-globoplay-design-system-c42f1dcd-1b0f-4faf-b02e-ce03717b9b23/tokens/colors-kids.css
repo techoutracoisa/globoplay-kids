@@ -1,0 +1,10 @@
+/* Playkit 3.0 — Kids colour theme (Gloob / Gloobinho / Globoplay Kids surfaces). */
+:root{
+--kids-blue:#425FFE;--kids-blue-light:#D8D8F6;--kids-blue-medium:#1C2E6B;--kids-blue-dark:#000C35;
+--kids-red:#F8403F;--kids-red-light:#FED9D9;--kids-red-medium:#C63332;--kids-red-dark:#631A19;
+--kids-yellow:#FFB10D;--kids-yellow-light:#FFEFCF;--kids-yellow-medium:#CC8E0A;--kids-yellow-dark:#664705;
+--kids-green:#00C4A2;--kids-green-light:#CCF3EC;--kids-green-medium:#009D82;--kids-green-dark:#004E41;
+--kids-purple:#A254D0;--kids-purple-light:#ECDDF6;--kids-purple-medium:#8243A6;--kids-purple-dark:#412253;
+--kids-gradient:linear-gradient(180deg,#425FFE 0%,#A254D0 100%); /* @kind color */
+}
+[data-theme="kids"]{--app-background:var(--kids-blue-dark);--text-accent:var(--kids-yellow);--action-sales-bg:var(--kids-purple);}
